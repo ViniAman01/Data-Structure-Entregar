@@ -17,8 +17,10 @@ int main(void)
 
     print(v);
 
-    swap(v,0,1);
+    bubsort(v);
     
     print(v);
+
+
     return 0;
 }

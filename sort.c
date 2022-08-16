@@ -23,7 +23,7 @@ void selecsort(FloatVector *v)
                 menor_i = j;
         }
         if(menor_i != i)
-            swap(v,i+1,menor_i);
+            swap(v,i,menor_i);
     }
 }
 
@@ -38,10 +38,7 @@ void bubsort(FloatVector *v)
 			cont++;
 			if(at(v,i) > at(v,i+1))
 			{
-				int aux;
-				put(v,i,aux);
-                put(v,i,at(v,i+1));
-                put(v,i+1,aux);
+				swap(v,i,i+1);
 				k = 1;
 			}
 		}
