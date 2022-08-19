@@ -17,7 +17,7 @@ int main(void)
 
     print(v);
 
-    bubsort(v);
+    mergeSort(v,0,size(v)-1);
     
     print(v);
 

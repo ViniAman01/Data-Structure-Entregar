@@ -62,7 +62,7 @@ void print(FloatVector *vec)
 {
 	for(int i = 0; i < vec->size; i++)
 	{
-		printf("%f ",vec->data[i]);
+		printf("%.2f ",vec->data[i]);
 	}
 	printf("\n");
 }

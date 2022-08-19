@@ -4,6 +4,7 @@
 
 void selecsort(FloatVector *v);
 void bubsort(FloatVector *v);
+void mergeSort(FloatVector *v, int inicio, int fim);
 void swap(FloatVector *v, int pos, int pos2);
 
 #endif
