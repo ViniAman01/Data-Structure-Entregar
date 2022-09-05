@@ -4,12 +4,13 @@
 typedef struct float_vector FloatVector;
 
 FloatVector *create(int tam);
-void destroy(FloatVector *ref_vector);
-int size(const FloatVector *vector);
-int capacity(const FloatVector *vector);
-float at(const FloatVector *vector, int pos);
-void append(FloatVector *vector, float value);
-void print(FloatVector *vector);
-void put(FloatVector *vector, int pos, float value);
+void destroy(FloatVector *v);
+int size(const FloatVector *v);
+int capacity(const FloatVector *v);
+float at(const FloatVector *v, int pos);
+void append(FloatVector *v, float value);
+void print(FloatVector *v);
+void put(FloatVector *v, int pos, float value);
+void addValues(FloatVector *v, int MAX);
 
 #endif

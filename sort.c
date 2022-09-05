@@ -96,3 +96,34 @@ void mergeSort(FloatVector *v,int inicio, int fim)
         merge(v,inicio,meio,fim);
     }
 }
+
+int particiona(FloatVector *v, int inicio, int final)
+{
+    int esq, dir; 
+    float pivo;
+    esq = inicio;
+    dir = final;
+    pivo = at(v,inicio);
+    while(esq < dir)
+    {
+        while(at(v,esq) <= pivo)
+            esq++;
+        while(at(v,dir) > pivo)
+            dir--;
+        swap(v,esq,dir);
+    }
+    put(v,inicio,at(v,dir));
+    put(v,dir,pivo);
+    return dir;
+}
+
+void quicksort(FloatVector *v,int inicio, int fim)
+{
+    int pivo;
+    if(fim > inicio)
+    {
+        pivo = particiona(v,inicio,fim);
+        quicksort(v,inicio,pivo-1);
+        quicksort(v,inicio,pivo+1);
+    }
+}

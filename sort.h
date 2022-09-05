@@ -2,6 +2,7 @@
 #define _SORT_C
 #include "float_vector.h"
 
+void quicksort(FloatVector *v, int inicio, int fim);
 void selecsort(FloatVector *v);
 void bubsort(FloatVector *v);
 void mergeSort(FloatVector *v, int inicio, int fim);

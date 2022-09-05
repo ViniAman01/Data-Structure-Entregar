@@ -1,6 +1,7 @@
 #include "float_vector.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct float_vector
 {
@@ -12,39 +13,39 @@ struct float_vector
 
 FloatVector *create(int tam)
 {
-	FloatVector *vet = (FloatVector*)calloc(1,sizeof(FloatVector));	
-	vet->capacity = tam;
-	vet->size = 0;
-	vet->data = (float *)calloc(vet->capacity, sizeof(float));	
+	FloatVector *v = (FloatVector*)calloc(1,sizeof(FloatVector));	
+	v->capacity = tam;
+	v->size = 0;
+	v->data = (float *)calloc(v->capacity, sizeof(float));	
 
-	return vet;	
+	return v;	
 }
 
-void destroy(FloatVector *vet_ref)
+void destroy(FloatVector *v)
 {
-	free(vet_ref->data);
-	free(vet_ref);
+	free(v->data);
+	free(v);
 }
 
-int size(const FloatVector *vector)
+int size(const FloatVector *v)
 {
-	return vector->size;
+	return v->size;
 }
 
-int capacity(const FloatVector *vector)
+int capacity(const FloatVector *v)
 {
-	return vector->capacity;
+	return v->capacity;
 }
 
-float at(const FloatVector *vector, int pos)
+float at(const FloatVector *v, int pos)
 {
-	if(pos < 0 || pos >= vector->size)
+	if(pos < 0 || pos >= v->size)
 	{
 		fprintf(stderr, "Erro: Invalid position\n");
 		exit(1);
 	}
 
-	return vector->data[pos];
+	return v->data[pos];
 }
 
 void put(FloatVector *v, int pos, float value)
@@ -52,17 +53,26 @@ void put(FloatVector *v, int pos, float value)
 	v->data[pos] = value;
 }
 
-void append(FloatVector *vec, float value)
+void append(FloatVector *v, float value)
 {
-	vec->data[vec->size] = value;
-	vec->size++;
+	v->data[v->size] = value;
+	v->size++;
 }
 
-void print(FloatVector *vec)
+void print(FloatVector *v)
 {
-	for(int i = 0; i < vec->size; i++)
+	for(int i = 0; i < v->size; i++)
 	{
-		printf("%.2f ",vec->data[i]);
+		printf("%.2f ",v->data[i]);
 	}
 	printf("\n");
+}
+
+void addValues(FloatVector *v, int MAX)
+{
+	srand(time(NULL));
+	for(int i = 0; i < v->capacity; i++)
+	{
+		append(v,rand() % MAX);
+	}
 }
