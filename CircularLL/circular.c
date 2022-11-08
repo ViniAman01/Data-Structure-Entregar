@@ -76,5 +76,3 @@ void List_add_first(CList *list,int val)
         list->begin = node;        
     }
 }
-
-void List_print()
